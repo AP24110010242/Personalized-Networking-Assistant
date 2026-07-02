@@ -1,0 +1,13 @@
+Consistent environment setup is critical for reproducibility. The team established a Python virtual environment to isolate project dependencies from the system Python installation, preventing version conflicts and ensuring that any developer can recreate the exact same working environment from scratch.
+
+Step-by-Step Environment Configuration
+
+Create a new Python virtual environment using venv
+
+Activate the virtual environment (different command on Windows vs Mac/Linux)
+
+Install all dependencies from the shared requirements.txt file
+
+Verify installations by importing key packages in a Python shell
+
+The requirements.txt includes all direct and transitive dependencies needed for the application, pinned to specific versions for reproducibility. Key packages include fastapi, uvicorn, streamlit, transformers, torch, requests, pydantic, pytest, and httpx.

@@ -1,0 +1,83 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nosexy
+.nosetests
+.pytest_cache/
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the values are
+#   specific to the developer's local machine and not standard across the project.
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if the platform is not identical, the lock file should be deleted before pipenv install.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipenv, see https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-to-version-control
+#poetry.lock
+
+# pdm
+#   Similar to Pipenv, see https://pdm-project.org/latest/usage/project/#commit-the-lockfile-to-version-control
+.pdm-python
+.pdm-build/
+
+# pipx
+.pipx/
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Local history/data files
+history.json
+feedback.json

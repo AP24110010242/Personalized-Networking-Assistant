@@ -1,0 +1,125 @@
+1. **Entities Involved**
+
+The ER diagram features six primary entities:
+
+Users Profile
+
+Event Context
+
+Networking Session
+
+Generated Starter
+
+Wikipedia Fact Check
+
+Log Entry
+
+2. **Primary Keys**
+
+Each entity is uniquely identified by its primary key:
+
+User Profile: UserID
+
+Event Context: EventID
+
+Networking Session: SessionID
+
+Generated Starter: StarterID
+
+Wikipedia Fact Check: FactCheckID
+
+Log Entry: LogID
+
+3. **Relationships**
+
+User Profile to Networking Session: One user can participate in multiple networking sessions (1 to Many).
+
+Event Context to Networking Session: A single event context can be associated with multiple networking sessions (1 to Many).
+
+Networking Session to Generated Starter: A single session can yield multiple AI-generated conversation starters (1 to Many).
+
+Networking Session to Wikipedia Fact Check: A single session can involve multiple fact-checking queries (1 to Many).
+
+Networking Session to Log Entry: A single session can generate multiple system log entries for auditing (1 to Many).
+
+4. **Foreign Keys**
+
+Networking Session references User Profile via UserID and Event Context via EventID.
+
+Generated Starter references Networking Session via SessionID.
+
+Wikipedia Fact Check references Networking Session via SessionID.
+
+Log Entry optionally references Networking Session via SessionID.
+
+5. **User Profile Attributes**
+
+Attributes include:
+
+UserID (PK)
+
+BioText
+
+currentEventCache
+
+6. **Event Context Attributes**
+
+EventID (PK)
+
+EventDescription
+
+AnalyzedThemes
+
+7. **Networking Session Attributes**
+
+SessionID (PK)
+
+UserID (FK)
+
+EventID (FK)
+
+SessionTimestamp
+
+8. **Generated Starter Attributes**
+
+StarterID (PK)
+
+SessionID (FK)
+
+StarterText ContextPromptUsed
+
+9. **Wikipedia Fact Check Attributes**
+
+FactCheckID (PK)
+
+SessionID (FK)
+
+VerifiedQueryText
+
+VerificationStatus
+
+WikipediaSourceURL
+
+10. **Log Entry Attributes**
+
+LogID (PK)
+
+SessionID (FK)
+
+ActionType
+
+PayloadJSON
+
+Timestamp
+
+**Cardinality**
+
+A single user or event can have multiple networking sessions. Each networking session can generate multiple conversation starters and trigger multiple fact-checks. Each action within the system can generate its own log entry linked back to the session.
+
+**Normalization and Structure**
+
+The diagram is normalized: data for users, event contexts, core session transactions, AI outputs, and system logs are stored in separate entities, reducing redundancy and ensuring clear traceability of data and AI interactions.
+
+**Use Case Coverage**
+
+This ER model supports these core Personalized Networking Assistant features: Tracking persistent user biographies and mapping them to dynamic event descriptions. Recording and tracking individual AI-generated conversation prompts per session. Logging Wikipedia verification queries to ensure factual reliability. Detailed interaction logging for system auditing, analytics, and performance debugging

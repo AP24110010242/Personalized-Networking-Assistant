@@ -1,0 +1,13 @@
+The service layer in this application is designed around several key software engineering principles that improve maintainability, testability, and extensibility:
+
+Single Responsibility Principle
+
+Each service file has exactly one job: event_analyzer.py only performs theme extraction, topic_generator.py only generates text, and so on. This means that if the fact-checking mechanism needs to change (e.g., switching from Wikipedia to a different API), only fact_checker.py needs to be modified — all other code remains untouched
+
+Dependency Injection via Imports
+
+Services are imported into the router at the top of conversation.py, making the dependencies explicit and easy to identify. In testing scenarios, these imports can be mocked to test route logic in isolation from the actual AI models, which is important because loading DistilBERT and GPT-2 in every test run would make tests prohibitively slow.
+
+Stateless Service Functions
+
+All service functions are stateless — they take input parameters and return output without modifying any shared state. The only exceptions are the logger functions, which intentionally maintain state in JSON files. This design makes service functions trivially testable: given the same inputs, they always produce deterministic outputs (for the loggers) or model-dependent outputs (for the AI services).

@@ -1,0 +1,1 @@
+The project uses pytest as its testing framework, which is the de-facto standard for Python testing. For testing FastAPI endpoints specifically, the httpx library's TestClient is used, which allows API calls to be made in-process without needing a running server. This makes tests fast, reliable, and completely self-contained.

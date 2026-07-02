@@ -1,0 +1,10 @@
+Beyond automated tests, manual testing through the Streamlit UI provides validation of the complete end-to-end user experience.
+
+Written for event_analyzer, topic_generator, fact_checker, and all routes
+
+Used pytest and httpx TestClient for FastAPI Activity 5.2: Deployment on Localhost
+
+Streamlit app: http://localhost:8501
+
+FastAPI Swagger UI: http://127.0.0.1:8000/docs
+

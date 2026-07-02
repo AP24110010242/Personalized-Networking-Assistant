@@ -1,0 +1,3 @@
+Tests are executed using pytest from the project root directory. The framework automatically discovers all test files matching the test_*.py naming pattern and executes every function beginning with test_:
+
+The --cov flag generates a code coverage report showing which lines of the application code were executed during tests and which were not. A target coverage of 80%+ is considered healthy for a production application. Lines not covered by tests represent potential blind spots where bugs could lurk undetected.

@@ -1,0 +1,3 @@
+Fact checker tests require a different strategy because they involve an external network call to the Wikipedia API. In true unit testing philosophy, external dependencies should be mocked to isolate the code under test:
+
+These tests use Python's unittest.mock module to replace the actual requests.get function with a MagicMock object that returns controlled, predictable data. This eliminates the dependency on network connectivity and Wikipedia's availability during test runs, making the tests reliable in any environment including CI/CD pipelines that may not have internet access. The three test cases cover the happy path, the missing-data path, and the error path, ensuring all branches of the fact_check function are tested

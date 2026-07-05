@@ -1,3 +1,0 @@
-The Streamlit frontend begins with its imports and backend connection configuration. This section establishes the bridge between the Python frontend and the FastAPI backend:
-
-The sys.path.append line is a critical piece of Python path manipulation that allows the Streamlit script (located in the frontend/ directory) to import modules from the parent project directory (specifically the feedback_logger service). Without this, Python's module system would not be able to locate the app.services package from the frontend's working directory. The BASE_URL constant defines the backend API location, which can easily be changed to a remote URL when deploying to a cloud environment.

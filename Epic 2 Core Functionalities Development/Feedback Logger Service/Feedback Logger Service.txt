@@ -1,5 +1,0 @@
-The feedback logger follows the same architectural pattern as the history logger but serves a distinct purpose:
-
-capturing explicit user feedback on individual conversation suggestions. This feedback data forms the foundation for a future recommendation improvement loop.
-
-Each feedback entry captures three fields: the exact suggestion text that was rated (so we can correlate feedback with specific generated content), the action taken (either 'like' or 'dislike' corresponding to the thumbs-up and thumbs-down buttons in the UI), and a timestamp. This structured format makes it straightforward to perform analytics later — for example, identifying which types of suggestions consistently receive positive feedback versus negative feedback, potentially informing prompt engineering improvements.

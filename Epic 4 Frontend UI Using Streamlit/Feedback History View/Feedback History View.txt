@@ -1,3 +1,0 @@
-The feedback history section allows users to review which suggestions they previously rated, creating a feedback loop for self-reflection:
-
-The feedback view shows up to 10 recent feedback entries (double the history limit, since individual suggestion ratings are more granular than full conversation sessions). The ternary expression for the icon variable — using a thumbs-up emoji for 'like' and thumbs-down for 'dislike' — provides an immediately recognizable visual indicator of the feedback sentiment. The st.caption() function renders the timestamp in a smaller, subdued font, creating a clear visual hierarchy where the suggestion content is prominent and the metadata is secondary.

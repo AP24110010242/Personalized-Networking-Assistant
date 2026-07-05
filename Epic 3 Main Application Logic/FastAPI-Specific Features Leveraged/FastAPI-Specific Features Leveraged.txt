@@ -1,7 +1,0 @@
-The application takes advantage of several FastAPI-specific features that make the API more robust, self-documenting, and developer-friendly:
-
-Automatic OpenAPI Documentation Because all endpoints use Pydantic models for both request and response bodies, FastAPI automatically generates a complete OpenAPI 3.0 specification and serves it through a built-in Swagger UI at http://127.0.0.1:8000/docs. This means developers can test all endpoints interactively through the browser without needing any additional tools like Postman or curl.
-
-Type-Safe Request Validation When a request arrives at any endpoint, FastAPI automatically validates the JSON body against the corresponding Pydantic schema before the handler function is even called. If the description field is missing from a ConversationRequest, or if interests is sent as a string instead of a list, FastAPI returns a detailed 422 error explaining exactly what was wrong — with no additional validation code required from the developer.
-
-Response Model Enforcement The response_model parameter on endpoint decorators (e.g., response_model=ConversationResponse) ensures that the data returned from the handler function is validated and serialized correctly before being sent to the client. This prevents accidentally returning internal data structures or sensitive information that was not intended to be part of the API response.

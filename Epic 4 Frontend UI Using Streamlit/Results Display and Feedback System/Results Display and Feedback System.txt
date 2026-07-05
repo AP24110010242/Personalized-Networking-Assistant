@@ -1,5 +1,0 @@
-After generation, the results are displayed and the feedback system is presented to the user. This section demonstrates Streamlit's ability to create dynamic, responsive layouts:
-
-The conditional check 'if suggestions in st.session_state' is fundamental to Streamlit UI design. Since the entire script re-runs on every interaction, this guard prevents the results section from rendering before the user has clicked the generate button. Only when suggestions have been stored in session_state will this section appear, creating an experience of dynamic content that appears only when relevant.
-
-The use of st.columns([1, 1]) creates a two-column layout for the thumbs-up and thumbs-down buttons. This is a Streamlit layout primitive that divides the available horizontal space equally between two columns. The key=f'like_{i}' and key=f'dislike_{i}' parameters are critical: without unique keys, Streamlit cannot distinguish between buttons in a loop and may trigger incorrect callbacks. By including the index i in the key, each button has a globally unique identifier within the session.

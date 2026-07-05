@@ -1,9 +1,0 @@
-With models selected, the next step was defining a clean, modular system architecture. The architecture needed to support separation of concerns (so different developers or teams can work on frontend, backend, and AI services independently), easy testability, and straightforward extensibility for future features like authentication or database integration.
-
-Architectural Overview
-
-The application follows a three-tier architecture with a clear data flow from the user interface through the API layer to the AI service modules:
-
-Directory Structure and Module Design
-
-The project was organized into a clean directory hierarchy that separates application code from frontend, tests, and configuration. This structure makes the codebase navigable and ensures that adding new features requires minimal disruption to existing code:

@@ -1,5 +1,0 @@
-The input section is the first thing users interact with when they open the application. It collects the two pieces of information needed to generate personalized conversation starters:
-
-Streamlit's programming model is fundamentally different from traditional web frameworks: the entire Python script runs from top to bottom every time the user interacts with the UI. This means that if we stored results in regular Python variables, they would be lost the moment the user clicked another button. The st.session_state dictionary solves this problem by persisting data across re-runs within the same browser session.
-
-The interest parsing logic [i.strip() for i in user_interests.split(',')] is a compact but important piece of data cleaning. When users type 'AI, blockchain, healthcare', the split produces ['AI', ' blockchain', ' healthcare'] — with leading spaces. The strip() call ensures these are cleaned to ['AI', 'blockchain', 'healthcare'] before being sent to the backend, preventing subtle matching issues in the AI models.

@@ -1,3 +1,0 @@
-Unit tests for the event analyzer verify that the DistilBERT classification pipeline behaves correctly across a range of inputs:
-
-These tests validate the function's contract without making assertions about the specific themes returned (which would be brittle since the model's output depends on its training). Instead, they test structural properties: is the output a list? Does it contain at most three items? Are all items drawn from the candidate labels set? Does it return at least one result? These kinds of assertions remain valid regardless of the specific model weights or future model updates.

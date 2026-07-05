@@ -1,3 +1,0 @@
-With all tests passing, the application is deployed locally for full end-to-end manual testing. The system requires two concurrent processes: the FastAPI backend server and the Streamlit frontend server:
-
-The --reload flag on the uvicorn command enables hot-reloading: the server automatically restarts whenever a Python file in the project is modified. This dramatically accelerates the development feedback loop since code changes take effect immediately without manual server restarts. Once both servers are running, the complete application is accessible at http://localhost:8501 for the Streamlit UI and http://127.0.0.1:8000/docs for the interactive API documentation

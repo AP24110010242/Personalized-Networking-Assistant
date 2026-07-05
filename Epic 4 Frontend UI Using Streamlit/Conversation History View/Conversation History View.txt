@@ -1,3 +1,0 @@
-The history section allows users to review past conversations. This leverages the history.json file maintained by the backend's history_logger service:
-
-The history[-5:] slice retrieves only the five most recent entries from the full history list, preventing the UI from becoming overwhelming if many sessions have been logged. The reversed() call then displays them in reverse chronological order (newest first), which aligns with the natural expectation that the most recent conversations should appear at the top. Each history entry is rendered with clear labels and a horizontal divider, making individual sessions easy to scan and distinguish.

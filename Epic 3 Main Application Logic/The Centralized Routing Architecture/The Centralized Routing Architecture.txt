@@ -1,5 +1,0 @@
-The routing architecture in this application follows a hub-and-spoke model where main.py acts as the central hub that assembles the application from modular components. This design pattern is especially important as applications grow — it allows new feature areas (such as a future /users endpoint or /recommendations endpoint) to be added as separate router files without touching existing code.
-
-Understanding the Request Lifecycle
-
-Understanding how a request flows through the system from the moment the frontend sends an HTTP POST to when the user sees a result is fundamental to understanding the application architecture:

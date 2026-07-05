@@ -1,0 +1,12 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\vijay\Desktop\Personalized Networking Assistant
+plugins: anyio-4.14.1
+collected 11 items
+
+tests\test_event_analyzer.py .                                           [  9%]
+tests\test_fact_checker.py ....                                          [ 45%]
+tests\test_routes.py ...                                                 [ 72%]
+tests\test_topic_generator.py ...                                        [100%]
+
+================= 11 passed, 4 warnings in 170.38s (0:02:50) ==================

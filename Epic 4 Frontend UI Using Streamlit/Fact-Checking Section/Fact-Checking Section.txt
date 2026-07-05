@@ -1,3 +1,0 @@
-The fact-checking section provides a completely independent feature within the same Streamlit page. Users can verify information about any topic without needing to re-enter their event description:
-
-The st.markdown('---') call renders a horizontal divider line, creating a clear visual separation between the conversation generation section and the fact-checking section. This UX pattern helps users quickly understand that these are two distinct features on the same page. The st.success() function renders the fact-check result in a green highlighted box, which provides immediate positive visual feedback and draws the user's attention to the result.

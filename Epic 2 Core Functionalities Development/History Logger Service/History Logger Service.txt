@@ -1,5 +1,0 @@
-The history logger provides persistent storage for conversation sessions. This enables the 'View Previous Conversations' feature in the frontend and allows users to revisit past interactions for reflection and learning.
-
-The history logger operates on a simple append-to-JSON-list pattern. When log_conversation is called, it first adds an ISO-formatted timestamp to the data dictionary (ensuring we always know when each conversation was generated), then reads the existing history file if it exists (or initializes an empty list), appends the new entry, and writes the entire updated list back to disk. This read-modify-write pattern ensures data integrity for single-process use.
-
-The use of Python's pathlib.Path for file handling rather than raw string paths is a best practice that ensures cross-platform compatibility — the same code works correctly on Windows, macOS, and Linux without modification. The load_history function provides a clean read interface that always returns a list, even when no history has been saved yet.

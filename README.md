@@ -54,6 +54,15 @@ Users preparing for an event can verify claims or topics (e.g., *"blockchain in 
 │   └── topic_generator.py              # GPT-2 conversation starter generator
 ├── frontend/                            # Streamlit Frontend UI
 │   └── streamlit_app.py                # Professional glassmorphism dashboard
+├── GIT/                                 # 8 Phase Project Documentation Folders
+│   ├── 1. Brainstorming & Ideation/     # Problem Statements, Empathy Map, Idea Prioritization
+│   ├── 2. Requirement Analysis/         # Customer Journey, DFD, Tech Stack, Requirements
+│   ├── 3. Project Design Phase/         # Problem-Solution Fit, Proposed Solution, Solution Architecture
+│   ├── 4. Project Planning Phase/       # Project Planning (Sprint Backlog)
+│   ├── 5. Project Development Phase/    # Code-Layout, Coding & Solution, Features List
+│   ├── 6. Project Testing/              # Performance Testing, test_results.txt
+│   ├── 7. Project Documentation/        # Project Executable Files, Sample Doc
+│   └── 8. Project Demonstration/        # Communication, Demo Proposed Features, Demo Planning, Scalability, Team Involvement
 ├── .env                                 # Environment variables
 ├── .gitignore                           # Git ignore rules
 ├── README.md                            # Project documentation

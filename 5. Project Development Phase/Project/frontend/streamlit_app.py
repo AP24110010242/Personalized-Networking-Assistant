@@ -23,39 +23,41 @@ st.markdown("""
     }
 
     .stApp {
-        background-color: #f1f3f9 !important;
+        background-color: #030303 !important;
         background-image: 
-            radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
-            radial-gradient(at 90% 10%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
-            radial-gradient(at 50% 90%, rgba(6, 182, 212, 0.06) 0px, transparent 50%) !important;
+            radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 50%),
+            radial-gradient(at 50% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%) !important;
         background-attachment: fixed !important;
     }
 
     /* ── Sidebar ── */
     section[data-testid="stSidebar"] {
-        background-color: rgba(255, 255, 255, 0.6) !important;
-        backdrop-filter: blur(25px) !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.4) !important;
+        background-color: #080808 !important;
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%) !important;
+        backdrop-filter: blur(20px) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
     }
 
     section[data-testid="stSidebar"] .stMarkdown p,
     section[data-testid="stSidebar"] .stMarkdown h1,
     section[data-testid="stSidebar"] .stMarkdown h2,
     section[data-testid="stSidebar"] .stMarkdown h3 {
-        color: #0f172a !important;
+        color: rgba(255, 255, 255, 0.9) !important;
     }
 
     /* ── Glass Card ── */
     .glass-card {
-        background: rgba(255, 255, 255, 0.55) !important;
+        background: rgba(20, 20, 25, 0.6) !important;
         backdrop-filter: blur(25px);
         -webkit-backdrop-filter: blur(25px);
         border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.06);
         padding: 32px;
         margin-bottom: 24px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 
-                    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                     box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                     border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -73,9 +75,9 @@ st.markdown("""
         background: linear-gradient(
             90deg,
             rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.1) 30%,
-            rgba(255, 255, 255, 0.4) 50%,
-            rgba(255, 255, 255, 0.1) 70%,
+            rgba(255, 255, 255, 0.01) 30%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.01) 70%,
             rgba(255, 255, 255, 0) 100%
         );
         transform: skewX(-25deg);
@@ -85,8 +87,8 @@ st.markdown("""
     .glass-card:hover {
         transform: translateY(-2px);
         border-color: rgba(99, 102, 241, 0.3);
-        box-shadow: 0 16px 48px rgba(99, 102, 241, 0.06), 
-                    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+        box-shadow: 0 16px 48px rgba(99, 102, 241, 0.15), 
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
     }
 
     .glass-card:hover::before {
@@ -96,14 +98,14 @@ st.markdown("""
 
     /* ── Hero Banner ── */
     .hero-banner {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(6, 182, 212, 0.05) 100%);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.08) 50%, rgba(6, 182, 212, 0.08) 100%);
         backdrop-filter: blur(30px);
         border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         padding: 40px 32px;
         margin-bottom: 32px;
         text-align: center;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         position: relative;
         overflow: hidden;
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -121,9 +123,9 @@ st.markdown("""
         background: linear-gradient(
             90deg,
             rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.1) 30%,
-            rgba(255, 255, 255, 0.4) 50%,
-            rgba(255, 255, 255, 0.1) 70%,
+            rgba(255, 255, 255, 0.01) 30%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.01) 70%,
             rgba(255, 255, 255, 0) 100%
         );
         transform: skewX(-25deg);
@@ -132,8 +134,8 @@ st.markdown("""
 
     .hero-banner:hover {
         transform: translateY(-1px);
-        border-color: rgba(99, 102, 241, 0.2);
-        box-shadow: 0 16px 48px rgba(99, 102, 241, 0.04);
+        border-color: rgba(99, 102, 241, 0.3);
+        box-shadow: 0 16px 48px rgba(99, 102, 241, 0.1);
     }
 
     .hero-banner:hover::before {
@@ -144,7 +146,7 @@ st.markdown("""
     .hero-banner h1 {
         font-size: 2.6rem !important;
         font-weight: 800 !important;
-        background: linear-gradient(135deg, #4f46e5, #7c3aed, #0891b2);
+        background: linear-gradient(135deg, #a78bfa, #e879f9, #22d3ee);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -155,7 +157,7 @@ st.markdown("""
     }
 
     .hero-subtitle {
-        color: #475569;
+        color: rgba(200, 200, 230, 0.7);
         font-size: 1.1rem;
         font-weight: 400;
         max-width: 600px;
@@ -169,7 +171,7 @@ st.markdown("""
     .section-header {
         font-size: 1.4rem !important;
         font-weight: 700 !important;
-        color: #1e1b4b !important;
+        color: #e2e8f0 !important;
         margin-bottom: 16px !important;
         display: flex;
         align-items: center;
@@ -178,28 +180,28 @@ st.markdown("""
 
     /* ── Starter Card ── */
     .starter-card {
-        background: rgba(255, 255, 255, 0.8) !important;
-        border: 1px solid rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 20px;
         padding: 20px 24px;
         margin-bottom: 12px;
-        color: #0f172a;
+        color: #ffffff;
         font-size: 1rem;
         line-height: 1.6;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .starter-card:hover {
-        background: #ffffff !important;
-        border-color: rgba(99, 102, 241, 0.2);
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(139, 92, 246, 0.3);
         transform: translateX(4px);
-        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.04);
+        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.08);
     }
 
     .starter-number {
         display: inline-block;
-        background: linear-gradient(135deg, #6366f1, #a855f7);
+        background: linear-gradient(135deg, #8b5cf6, #ec4899);
         color: white;
         font-weight: 700;
         font-size: 0.8rem;
@@ -214,12 +216,12 @@ st.markdown("""
     /* ── Topic Pill ── */
     .topic-pill {
         display: inline-block;
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(168, 85, 247, 0.06));
-        border: 1px solid rgba(99, 102, 241, 0.15);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.15));
+        border: 1px solid rgba(139, 92, 246, 0.4);
         border-radius: 30px;
         padding: 6px 18px;
         margin: 4px 6px 4px 0;
-        color: #4f46e5;
+        color: #c4b5fd;
         font-size: 0.85rem;
         font-weight: 600;
         letter-spacing: 0.3px;
@@ -227,8 +229,8 @@ st.markdown("""
 
     /* ── History Card (Fallback) ── */
     .history-card {
-        background: rgba(255, 255, 255, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 16px;
         padding: 24px;
         margin-bottom: 16px;
@@ -236,12 +238,12 @@ st.markdown("""
     }
 
     .history-card:hover {
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.05);
         border-color: rgba(255, 255, 255, 0.1);
     }
 
     .history-timestamp {
-        color: rgba(168, 162, 200, 0.7);
+        color: rgba(200, 200, 230, 0.4);
         font-size: 0.8rem;
         font-weight: 500;
         text-transform: uppercase;
@@ -250,21 +252,21 @@ st.markdown("""
     }
 
     .history-event {
-        color: #e0e0ff;
+        color: #ffffff;
         font-size: 1.05rem;
         font-weight: 600;
         margin-bottom: 10px;
     }
 
     .history-detail {
-        color: rgba(200, 200, 230, 0.6);
+        color: rgba(200, 200, 230, 0.7);
         font-size: 0.9rem;
     }
 
     /* ── Feedback Pill ── */
     .feedback-item {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 14px;
         padding: 16px 20px;
         margin-bottom: 10px;
@@ -278,20 +280,20 @@ st.markdown("""
     }
 
     .feedback-text {
-        color: #d0d0e8;
+        color: #e2e8f0;
         font-size: 0.95rem;
         flex: 1;
     }
 
     .feedback-time {
-        color: rgba(168, 162, 200, 0.5);
+        color: rgba(200, 200, 230, 0.4);
         font-size: 0.75rem;
     }
 
     /* ── Fact Check Result ── */
     .fact-result {
-        background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(16, 185, 129, 0.08));
-        border: 1px solid rgba(34, 197, 94, 0.2);
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(4, 120, 87, 0.15));
+        border: 1px solid rgba(16, 185, 129, 0.3);
         border-radius: 16px;
         padding: 24px;
         color: #a7f3d0;
@@ -300,9 +302,8 @@ st.markdown("""
     }
 
     /* ── Buttons ── */
-    /* ── Buttons ── */
     .stButton > button {
-        background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
         color: white !important;
         border: none !important;
         border-radius: 14px !important;
@@ -312,55 +313,55 @@ st.markdown("""
         font-size: 0.95rem !important;
         letter-spacing: 0.3px;
         transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2) !important;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
     }
 
     .stButton > button:hover {
-        background: linear-gradient(135deg, #4f46e5, #3730a3) !important;
+        background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4) !important;
     }
 
     .stButton > button:active {
         transform: translateY(0px) !important;
     }
 
-    /* ── Text Inputs ── */
+    /* ── Text Inputs (CRITICAL VISIBILITY FIX) ── */
     .stTextArea textarea, .stTextInput input, div[data-baseweb="input"] input, div[data-baseweb="textarea"] textarea {
-        background: #ffffff !important;
-        border: 1px solid #e2e8f0 !important;
+        background: #101014 !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
         border-radius: 14px !important;
-        color: #0f172a !important;
-        -webkit-text-fill-color: #0f172a !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
         font-family: 'Outfit', 'Inter', sans-serif !important;
         font-size: 0.95rem !important;
         padding: 12px 16px !important;
         transition: all 0.3s ease !important;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.02) !important;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.2) !important;
     }
 
     .stTextArea textarea:focus, .stTextInput input:focus, div[data-baseweb="input"]:focus-within, div[data-baseweb="textarea"]:focus-within {
-        border-color: #6366f1 !important;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
-        background: #ffffff !important;
+        border-color: rgba(139, 92, 246, 0.6) !important;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+        background: #08080c !important;
     }
 
     /* Force text color in wrapper */
     div[data-baseweb="input"], div[data-baseweb="textarea"] {
         background-color: transparent !important;
         border: none !important;
-        color: #0f172a !important;
+        color: #ffffff !important;
     }
 
     /* Placeholder style */
     ::placeholder, .stTextArea textarea::placeholder, .stTextInput input::placeholder {
-        color: #94a3b8 !important;
-        -webkit-text-fill-color: #94a3b8 !important;
+        color: rgba(200, 200, 230, 0.4) !important;
+        -webkit-text-fill-color: rgba(200, 200, 230, 0.4) !important;
         opacity: 1 !important;
     }
 
     .stTextArea label, .stTextInput label {
-        color: #4f46e5 !important;
+        color: #c4b5fd !important;
         font-weight: 600 !important;
         font-size: 0.95rem !important;
         letter-spacing: 0.3px;
@@ -370,7 +371,7 @@ st.markdown("""
     /* ── Divider ── */
     .custom-divider {
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
         margin: 32px 0;
         border: none;
     }
@@ -378,16 +379,16 @@ st.markdown("""
     /* ── Tabs styling ── */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.03);
         border-radius: 16px;
         padding: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .stTabs [data-baseweb="tab"] {
         border-radius: 12px !important;
-        color: #64748b !important;
+        color: rgba(200, 200, 230, 0.6) !important;
         font-weight: 600 !important;
         font-family: 'Outfit', 'Inter', sans-serif !important;
         padding: 10px 24px !important;
@@ -395,14 +396,14 @@ st.markdown("""
     }
 
     .stTabs [data-baseweb="tab"]:hover {
-        color: #4f46e5 !important;
-        background: rgba(255, 255, 255, 0.3) !important;
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.05) !important;
     }
 
     .stTabs [aria-selected="true"] {
-        background: #ffffff !important;
-        color: #4f46e5 !important;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08) !important;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2)) !important;
+        color: #c4b5fd !important;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15) !important;
     }
 
     .stTabs [data-baseweb="tab-highlight"] {
@@ -412,6 +413,8 @@ st.markdown("""
     /* ── Alert boxes ── */
     .stAlert {
         border-radius: 12px !important;
+        background-color: rgba(20, 20, 25, 0.6) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
     }
 
     /* ── Spinner ── */
@@ -422,8 +425,8 @@ st.markdown("""
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.3); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.5); }
+    ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.2); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.4); }
 
     /* ── Hide Streamlit branding ── */
     #MainMenu { visibility: hidden; }
@@ -432,23 +435,23 @@ st.markdown("""
 
     /* ── Metric cards ── */
     .metric-card {
-        background: rgba(255, 255, 255, 0.5) !important;
+        background: rgba(255, 255, 255, 0.04) !important;
         backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 16px;
         padding: 20px 24px;
         text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .metric-value {
         font-size: 2rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #4f46e5, #ec4899);
+        background: linear-gradient(135deg, #a78bfa, #e879f9);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
     .metric-label {
-        color: #64748b;
+        color: rgba(200, 200, 230, 0.6);
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 1.5px;
@@ -457,18 +460,18 @@ st.markdown("""
 
     /* ── Accordion Glass Expander ── */
     div[data-testid="stExpander"] {
-        background: rgba(255, 255, 255, 0.35) !important;
-        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        background: rgba(20, 20, 25, 0.4) !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
         border-radius: 18px !important;
         margin-bottom: 12px !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
         overflow: hidden !important;
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     div[data-testid="stExpander"]:hover {
-        border-color: rgba(99, 102, 241, 0.25) !important;
-        background: rgba(255, 255, 255, 0.5) !important;
-        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.04) !important;
+        border-color: rgba(139, 92, 246, 0.3) !important;
+        background: rgba(25, 25, 30, 0.5) !important;
+        box-shadow: 0 8px 30px rgba(139, 92, 246, 0.08) !important;
     }
     div[data-testid="stExpander"] details {
         border: none !important;
@@ -476,10 +479,10 @@ st.markdown("""
     div[data-testid="stExpander"] summary {
         padding: 16px 20px !important;
         font-weight: 600 !important;
-        color: #1e293b !important;
+        color: #e2e8f0 !important;
     }
     div[data-testid="stExpander"] summary:hover {
-        color: #4f46e5 !important;
+        color: #c4b5fd !important;
     }
 
     /* ── Compact Emoji Feedback Buttons ── */
@@ -491,8 +494,8 @@ st.markdown("""
         gap: 8px;
     }
     .suggestion-actions button {
-        background: rgba(0, 0, 0, 0.03) !important;
-        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
         border-radius: 50% !important;
         width: 36px !important;
         height: 36px !important;
@@ -503,16 +506,16 @@ st.markdown("""
         align-items: center !important;
         justify-content: center !important;
         font-size: 0.95rem !important;
-        color: #475569 !important;
+        color: rgba(255, 255, 255, 0.7) !important;
         box-shadow: none !important;
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .suggestion-actions button:hover {
-        background: rgba(99, 102, 241, 0.08) !important;
-        border-color: rgba(99, 102, 241, 0.25) !important;
-        color: #4f46e5 !important;
+        background: rgba(139, 92, 246, 0.15) !important;
+        border-color: rgba(139, 92, 246, 0.4) !important;
+        color: #ffffff !important;
         transform: scale(1.1) translateY(-1px) !important;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1) !important;
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2) !important;
     }
     .suggestion-actions button:active {
         transform: scale(0.95) !important;
@@ -640,10 +643,10 @@ with tab1:
                             suggestions = [s.get("starter", s) if isinstance(s, dict) else s for s in item["content"].get("conversation_starters", [])]
                         
                         st.markdown(f"""
-                        <div style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 16px; padding: 16px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.015);">
-                            <div style="color: #64748b; font-size: 0.75rem; font-weight: 600; margin-bottom: 4px;">🕒 {timestamp}</div>
-                            <div style="color: #0f172a; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; line-height: 1.4;">📌 {event_desc[:55]}...</div>
-                            <div style="color: #475569; font-size: 0.8rem; line-height: 1.4;">
+                        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 16px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            <div style="color: rgba(200, 200, 230, 0.4); font-size: 0.75rem; font-weight: 600; margin-bottom: 4px;">🕒 {timestamp}</div>
+                            <div style="color: #ffffff; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; line-height: 1.4;">📌 {event_desc[:55]}...</div>
+                            <div style="color: rgba(200, 200, 230, 0.7); font-size: 0.8rem; line-height: 1.4;">
                                 <strong>Themes:</strong> {', '.join(themes[:2]) if themes else 'None'}
                             </div>
                         </div>

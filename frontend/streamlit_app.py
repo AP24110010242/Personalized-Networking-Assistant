@@ -14,68 +14,30 @@ BASE_URL = "http://127.0.0.1:8000"
 # ─── Custom CSS: Glassmorphism + Professional Styling ───
 st.markdown("""
 <style>
-    /* ── Import Google Font ── */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    /* ── Import Google Fonts ── */
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
     /* ── Global ── */
     html, body, [class*="st-"] {
-        font-family: 'Inter', sans-serif !important;
+        font-family: 'Outfit', 'Inter', sans-serif !important;
     }
 
     .stApp {
-        background: linear-gradient(135deg, #070514 0%, #0d0d26 50%, #111124 100%) !important;
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* ── Animated Background Blobs ── */
-    .bg-blob {
-        position: fixed;
-        width: 500px;
-        height: 500px;
-        border-radius: 50%;
-        filter: blur(120px);
-        opacity: 0.22;
-        z-index: -1;
-        pointer-events: none;
-    }
-    .blob1 {
-        background: radial-gradient(circle, #6366f1, #8b5cf6);
-        top: -10%;
-        left: -10%;
-        animation: float-blob1 20s infinite alternate ease-in-out;
-    }
-    .blob2 {
-        background: radial-gradient(circle, #ec4899, #8b5cf6);
-        bottom: -10%;
-        right: -10%;
-        animation: float-blob2 25s infinite alternate ease-in-out;
-    }
-    .blob3 {
-        background: radial-gradient(circle, #3b82f6, #06b6d4);
-        top: 40%;
-        left: 50%;
-        animation: float-blob3 22s infinite alternate ease-in-out;
-    }
-
-    @keyframes float-blob1 {
-        0% { transform: translate(0, 0) scale(1); }
-        100% { transform: translate(120px, 80px) scale(1.15); }
-    }
-    @keyframes float-blob2 {
-        0% { transform: translate(0, 0) scale(1); }
-        100% { transform: translate(-100px, -60px) scale(0.9); }
-    }
-    @keyframes float-blob3 {
-        0% { transform: translate(0, 0) scale(1); }
-        100% { transform: translate(60px, -80px) scale(1.1); }
+        background-color: #030303 !important;
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 50%),
+            radial-gradient(at 50% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%) !important;
+        background-attachment: fixed !important;
     }
 
     /* ── Sidebar ── */
     section[data-testid="stSidebar"] {
-        background: rgba(15, 12, 41, 0.85) !important;
+        background-color: #080808 !important;
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%) !important;
         backdrop-filter: blur(20px) !important;
-        border-right: 1px solid rgba(255,255,255,0.08) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
     }
 
     section[data-testid="stSidebar"] .stMarkdown p,
@@ -87,11 +49,11 @@ st.markdown("""
 
     /* ── Glass Card ── */
     .glass-card {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(20, 20, 25, 0.6) !important;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.06);
         padding: 32px;
         margin-bottom: 24px;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 
@@ -364,26 +326,45 @@ st.markdown("""
     }
 
     /* ── Text Inputs ── */
-    .stTextArea textarea, .stTextInput input {
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    /* ── Text Inputs ── */
+    .stTextArea textarea, .stTextInput input, div[data-baseweb="input"] input, div[data-baseweb="textarea"] textarea {
+        background: #101014 !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
         border-radius: 12px !important;
-        color: #e0e0ff !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
         font-family: 'Inter', sans-serif !important;
         font-size: 0.95rem !important;
         padding: 12px 16px !important;
         transition: all 0.3s ease !important;
     }
 
-    .stTextArea textarea:focus, .stTextInput input:focus {
-        border-color: rgba(139, 92, 246, 0.5) !important;
-        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15) !important;
+    .stTextArea textarea:focus, .stTextInput input:focus, div[data-baseweb="input"]:focus-within, div[data-baseweb="textarea"]:focus-within {
+        border-color: rgba(139, 92, 246, 0.6) !important;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+        background: #08080c !important;
+    }
+
+    /* Force text color in wrapper */
+    div[data-baseweb="input"], div[data-baseweb="textarea"] {
+        background-color: transparent !important;
+        border: none !important;
+        color: #ffffff !important;
+    }
+
+    /* Placeholder style */
+    ::placeholder, .stTextArea textarea::placeholder, .stTextInput input::placeholder {
+        color: rgba(200, 200, 230, 0.4) !important;
+        -webkit-text-fill-color: rgba(200, 200, 230, 0.4) !important;
+        opacity: 1 !important;
     }
 
     .stTextArea label, .stTextInput label {
         color: #c4b5fd !important;
-        font-weight: 500 !important;
+        font-weight: 600 !important;
         font-size: 0.95rem !important;
+        letter-spacing: 0.3px;
+        margin-bottom: 8px !important;
     }
 
     /* ── Divider ── */
@@ -463,10 +444,102 @@ st.markdown("""
         letter-spacing: 1.5px;
         margin-top: 4px;
     }
+
+    /* ── Accordion Glass Expander ── */
+    div[data-testid="stExpander"] {
+        background: rgba(20, 20, 25, 0.4) !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        border-radius: 16px !important;
+        margin-bottom: 12px !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+        overflow: hidden !important;
+        transition: all 0.3s ease !important;
+    }
+    div[data-testid="stExpander"]:hover {
+        border-color: rgba(139, 92, 246, 0.3) !important;
+        background: rgba(25, 25, 30, 0.5) !important;
+        box-shadow: 0 8px 30px rgba(139, 92, 246, 0.08) !important;
+    }
+    div[data-testid="stExpander"] details {
+        border: none !important;
+    }
+    div[data-testid="stExpander"] summary {
+        padding: 16px 20px !important;
+        font-weight: 600 !important;
+        color: #e2e8f0 !important;
+    }
+    div[data-testid="stExpander"] summary:hover {
+        color: #c4b5fd !important;
+    }
+
+    /* ── Compact Emoji Feedback Buttons ── */
+    .suggestion-actions {
+        margin-top: -8px;
+        margin-bottom: 24px;
+        padding-left: 8px;
+        display: flex;
+        gap: 8px;
+    }
+    .suggestion-actions button {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 50% !important;
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        max-width: 36px !important;
+        padding: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        box-shadow: none !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .suggestion-actions button:hover {
+        background: rgba(139, 92, 246, 0.15) !important;
+        border-color: rgba(139, 92, 246, 0.4) !important;
+        color: #ffffff !important;
+        transform: scale(1.1) translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2) !important;
+    }
+    .suggestion-actions button:active {
+        transform: scale(0.95) !important;
+    }
+
+    /* ── Placeholder Card ── */
+    .placeholder-card {
+        border: 1px dashed rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.01);
+        border-radius: 20px;
+        padding: 48px 32px;
+        text-align: center;
+        color: rgba(200, 200, 230, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 280px;
+        margin-top: 10px;
+    }
+    .placeholder-icon {
+        font-size: 3rem;
+        margin-bottom: 16px;
+        opacity: 0.5;
+    }
+    .placeholder-text {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: rgba(200, 200, 230, 0.6);
+    }
+    .placeholder-desc {
+        font-size: 0.9rem;
+        max-width: 320px;
+        line-height: 1.5;
+    }
 </style>
-<div class="bg-blob blob1"></div>
-<div class="bg-blob blob2"></div>
-<div class="bg-blob blob3"></div>
 """, unsafe_allow_html=True)
 
 

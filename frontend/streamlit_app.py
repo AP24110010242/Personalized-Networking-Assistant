@@ -23,7 +23,52 @@ st.markdown("""
     }
 
     .stApp {
-        background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 30%, #24243e 60%, #0f0c29 100%);
+        background: linear-gradient(135deg, #070514 0%, #0d0d26 50%, #111124 100%) !important;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* ── Animated Background Blobs ── */
+    .bg-blob {
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.22;
+        z-index: -1;
+        pointer-events: none;
+    }
+    .blob1 {
+        background: radial-gradient(circle, #6366f1, #8b5cf6);
+        top: -10%;
+        left: -10%;
+        animation: float-blob1 20s infinite alternate ease-in-out;
+    }
+    .blob2 {
+        background: radial-gradient(circle, #ec4899, #8b5cf6);
+        bottom: -10%;
+        right: -10%;
+        animation: float-blob2 25s infinite alternate ease-in-out;
+    }
+    .blob3 {
+        background: radial-gradient(circle, #3b82f6, #06b6d4);
+        top: 40%;
+        left: 50%;
+        animation: float-blob3 22s infinite alternate ease-in-out;
+    }
+
+    @keyframes float-blob1 {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(120px, 80px) scale(1.15); }
+    }
+    @keyframes float-blob2 {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(-100px, -60px) scale(0.9); }
+    }
+    @keyframes float-blob3 {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(60px, -80px) scale(1.1); }
     }
 
     /* ── Sidebar ── */
@@ -42,25 +87,57 @@ st.markdown("""
 
     /* ── Glass Card ── */
     .glass-card {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         padding: 32px;
         margin-bottom: 24px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glass-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.01) 30%,
+            rgba(255, 255, 255, 0.12) 50%,
+            rgba(255, 255, 255, 0.01) 70%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        pointer-events: none;
     }
 
     .glass-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+        transform: translateY(-4px);
+        border-color: rgba(139, 92, 246, 0.35);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 
+                    0 0 15px rgba(139, 92, 246, 0.15),
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-card:hover::before {
+        left: 150%;
+        transition: left 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* ── Hero Banner ── */
     .hero-banner {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 50%, rgba(236, 72, 153, 0.15) 100%);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(168, 85, 247, 0.12) 50%, rgba(236, 72, 153, 0.12) 100%);
         backdrop-filter: blur(30px);
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -68,6 +145,41 @@ st.markdown("""
         margin-bottom: 32px;
         text-align: center;
         box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.01) 30%,
+            rgba(255, 255, 255, 0.15) 50%,
+            rgba(255, 255, 255, 0.01) 70%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        pointer-events: none;
+    }
+
+    .hero-banner:hover {
+        transform: translateY(-2px);
+        border-color: rgba(168, 85, 247, 0.4);
+        box-shadow: 0 16px 40px rgba(99, 102, 241, 0.25);
+    }
+
+    .hero-banner:hover::before {
+        left: 150%;
+        transition: left 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .hero-banner h1 {
@@ -79,6 +191,8 @@ st.markdown("""
         background-clip: text;
         margin-bottom: 12px !important;
         letter-spacing: -0.5px;
+        position: relative;
+        z-index: 2;
     }
 
     .hero-subtitle {
@@ -88,6 +202,8 @@ st.markdown("""
         max-width: 600px;
         margin: 0 auto;
         line-height: 1.6;
+        position: relative;
+        z-index: 2;
     }
 
     /* ── Section Header ── */
@@ -348,6 +464,9 @@ st.markdown("""
         margin-top: 4px;
     }
 </style>
+<div class="bg-blob blob1"></div>
+<div class="bg-blob blob2"></div>
+<div class="bg-blob blob3"></div>
 """, unsafe_allow_html=True)
 
 

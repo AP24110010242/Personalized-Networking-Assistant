@@ -608,94 +608,114 @@ tab1, tab2, tab3, tab4 = st.tabs([
 
 # ━━━━━━━━━━━ TAB 1: Generate Conversation Starters ━━━━━━━━━━━
 with tab1:
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown('<p class="section-header">🎯 Generate Conversation Starters</p>', unsafe_allow_html=True)
+    col_input, col_output = st.columns([5, 7], gap="large")
+    
+    with col_input:
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown('<p class="section-header">🎯 Event Settings</p>', unsafe_allow_html=True)
+        st.markdown(
+            '<p style="color: rgba(200,200,230,0.6); font-size: 0.9rem; margin-bottom: 16px;">'
+            'Enter the event details and your interests below to generate tailored starters.</p>',
+            unsafe_allow_html=True
+        )
 
-    event_description = st.text_area(
-        "📝 Event Description",
-        placeholder="e.g. AI for Sustainable Cities — a conference exploring how artificial intelligence can drive urban sustainability...",
-        height=120
-    )
+        event_description = st.text_area(
+            "📝 Event Description",
+            placeholder="e.g. AI for Sustainable Cities — a conference exploring how artificial intelligence can drive urban sustainability...",
+            height=140
+        )
 
-    user_interests = st.text_input(
-        "💡 Your Interests (comma-separated)",
-        placeholder="e.g. climate change, urban planning, green energy"
-    )
+        user_interests = st.text_input(
+            "💡 Your Interests (comma-separated)",
+            placeholder="e.g. climate change, urban planning, green energy"
+        )
 
-    generate_clicked = st.button("✨ Generate Starters", use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+        generate_clicked = st.button("✨ Generate Starters", use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
 
-    if generate_clicked:
-        if event_description and user_interests:
-            payload = {
-                "description": event_description,
-                "interests": [i.strip() for i in user_interests.split(",")]
-            }
+        if generate_clicked:
+            if event_description and user_interests:
+                payload = {
+                    "description": event_description,
+                    "interests": [i.strip() for i in user_interests.split(",")]
+                }
 
-            with st.spinner("🧠 AI is crafting your starters..."):
-                try:
-                    response = requests.post(f"{BASE_URL}/generate-conversation", json=payload, timeout=60)
+                with st.spinner("🧠 AI is crafting your starters..."):
+                    try:
+                        response = requests.post(f"{BASE_URL}/generate-conversation", json=payload, timeout=60)
 
-                    if response.status_code == 200:
-                        data = response.json()
-                        st.session_state["topics"] = data["topics"]
-                        st.session_state["suggestions"] = data["suggestions"]
-                    else:
-                        st.error("❌ Failed to generate conversation starters. Is the backend running?")
-                except requests.exceptions.ConnectionError:
-                    st.error("🔌 Cannot connect to backend. Please start the FastAPI server first.")
-                except Exception as e:
-                    st.error(f"⚠️ An unexpected error occurred: {e}")
+                        if response.status_code == 200:
+                            data = response.json()
+                            st.session_state["topics"] = data["topics"]
+                            st.session_state["suggestions"] = data["suggestions"]
+                            st.rerun()
+                        else:
+                            st.error("❌ Failed to generate conversation starters. Is the backend running?")
+                    except requests.exceptions.ConnectionError:
+                        st.error("🔌 Cannot connect to backend. Please start the FastAPI server first.")
+                    except Exception as e:
+                        st.error(f"⚠️ An unexpected error occurred: {e}")
+            else:
+                st.warning("⚠️ Please enter both an event description and your interests.")
+                
+    with col_output:
+        # Display results if available, otherwise show placeholder
+        if "suggestions" in st.session_state and st.session_state["suggestions"]:
+            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+            st.markdown('<p class="section-header">🧠 Extracted Themes</p>', unsafe_allow_html=True)
+            pills_html = ""
+            for topic in st.session_state["topics"]:
+                pills_html += f'<span class="topic-pill">{topic}</span>'
+            st.markdown(f'<div style="margin-bottom: 24px;">{pills_html}</div>', unsafe_allow_html=True)
+            
+            st.markdown('<p class="section-header">💬 Tailored Starters</p>', unsafe_allow_html=True)
+            for i, suggestion in enumerate(st.session_state["suggestions"]):
+                st.markdown(
+                    f'<div class="starter-card">'
+                    f'<span class="starter-number">{i + 1}</span>'
+                    f'{suggestion}'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
+                
+                st.markdown('<div class="suggestion-actions">', unsafe_allow_html=True)
+                col1, col2, col3 = st.columns([1.5, 1.5, 9])
+                with col1:
+                    if st.button("👍", key=f"like_{i}"):
+                        try:
+                            resp = requests.post(
+                                f"{BASE_URL}/feedback",
+                                json={"suggestion": suggestion, "action": "thumbs_up"},
+                                timeout=10
+                            )
+                            if resp.status_code == 200:
+                                st.success("✅ Saved!")
+                        except Exception:
+                            st.error("Error.")
+                with col2:
+                    if st.button("👎", key=f"dislike_{i}"):
+                        try:
+                            resp = requests.post(
+                                f"{BASE_URL}/feedback",
+                                json={"suggestion": suggestion, "action": "thumbs_down"},
+                                timeout=10
+                            )
+                            if resp.status_code == 200:
+                                st.info("📝 Noted.")
+                        except Exception:
+                            st.error("Error.")
+                st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
         else:
-            st.warning("⚠️ Please enter both an event description and your interests.")
-
-    # Display results
-    if "suggestions" in st.session_state and st.session_state["suggestions"]:
-        st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
-
-        # Topics
-        st.markdown('<p class="section-header">🧠 Extracted Themes</p>', unsafe_allow_html=True)
-        pills_html = ""
-        for topic in st.session_state["topics"]:
-            pills_html += f'<span class="topic-pill">{topic}</span>'
-        st.markdown(f'<div style="margin-bottom: 20px;">{pills_html}</div>', unsafe_allow_html=True)
-
-        # Suggestions
-        st.markdown('<p class="section-header">💬 Conversation Starters</p>', unsafe_allow_html=True)
-        for i, suggestion in enumerate(st.session_state["suggestions"]):
-            st.markdown(
-                f'<div class="starter-card">'
-                f'<span class="starter-number">{i + 1}</span>'
-                f'{suggestion}'
-                f'</div>',
-                unsafe_allow_html=True
-            )
-
-            col1, col2, col3 = st.columns([1, 1, 6])
-            with col1:
-                if st.button("👍", key=f"like_{i}"):
-                    try:
-                        resp = requests.post(
-                            f"{BASE_URL}/feedback",
-                            json={"suggestion": suggestion, "action": "thumbs_up"},
-                            timeout=10
-                        )
-                        if resp.status_code == 200:
-                            st.success("✅ Thanks for the feedback!")
-                    except Exception:
-                        st.error("Failed to submit feedback.")
-            with col2:
-                if st.button("👎", key=f"dislike_{i}"):
-                    try:
-                        resp = requests.post(
-                            f"{BASE_URL}/feedback",
-                            json={"suggestion": suggestion, "action": "thumbs_down"},
-                            timeout=10
-                        )
-                        if resp.status_code == 200:
-                            st.info("📝 Feedback noted.")
-                    except Exception:
-                        st.error("Failed to submit feedback.")
+            st.markdown(f"""
+            <div class="placeholder-card">
+                <div class="placeholder-icon">🤝</div>
+                <div class="placeholder-text">Conversation Starters</div>
+                <div class="placeholder-desc">
+                    Your AI-powered networking starters and event-relevant themes will appear here. Submit the event settings on the left to start!
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
 
 
 # ━━━━━━━━━━━ TAB 2: Fact Check ━━━━━━━━━━━
@@ -781,20 +801,26 @@ with tab3:
             elif "suggestions" in item:
                 starters = item["suggestions"]
 
-            st.markdown(f"""
-            <div class="history-card">
-                <div class="history-timestamp">🕒 {timestamp}</div>
-                <div class="history-event">📌 {event_desc}</div>
-                <div class="history-detail">
-                    <strong>Themes:</strong> {', '.join(themes) if themes else 'N/A'}<br>
-                    <strong>Interests:</strong> {', '.join(interests) if interests else 'N/A'}
+            expander_title = f"🕒 {timestamp} — {event_desc[:45]}..." if len(event_desc) > 45 else f"🕒 {timestamp} — {event_desc}"
+            
+            with st.expander(expander_title, expanded=False):
+                st.markdown(f"""
+                <div style="padding: 4px 0;">
+                    <p style="color: #c4b5fd; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem;">📌 Event Description</p>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">{event_desc}</p>
+                    <div style="background: rgba(255,255,255,0.02); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.04); margin-bottom: 20px;">
+                        <span style="color: rgba(200, 200, 230, 0.6); font-size: 0.85rem; display: block; margin-bottom: 4px;">BRAINSTORMED THEMES</span>
+                        <span style="color: #e2e8f0; font-weight: 500; font-size: 0.9rem; display: block;">{', '.join(themes) if themes else 'None'}</span>
+                        <span style="color: rgba(200, 200, 230, 0.6); font-size: 0.85rem; display: block; margin-top: 12px; margin-bottom: 4px;">YOUR INTERESTS</span>
+                        <span style="color: #e2e8f0; font-weight: 500; font-size: 0.9rem; display: block;">{', '.join(interests) if interests else 'None'}</span>
+                    </div>
                 </div>
-            </div>
-            """, unsafe_allow_html=True)
-
-            if starters:
-                for s in starters:
-                    st.markdown(f'<div class="starter-card">💬 {s}</div>', unsafe_allow_html=True)
+                """, unsafe_allow_html=True)
+                
+                if starters:
+                    st.markdown('<p style="color: #c4b5fd; font-weight: 600; margin-bottom: 12px; font-size: 0.95rem;">💬 AI-Generated Starters</p>', unsafe_allow_html=True)
+                    for s in starters:
+                        st.markdown(f'<div class="starter-card">💬 {s}</div>', unsafe_allow_html=True)
 
 
 # ━━━━━━━━━━━ TAB 4: Feedback ━━━━━━━━━━━

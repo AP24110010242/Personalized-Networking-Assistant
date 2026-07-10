@@ -78,6 +78,9 @@ Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
 
+# Environment variables
+.env
+
 # Local history/data files
-history.json
-feedback.json
+backend/data/history.json
+backend/data/feedback.json

@@ -23,41 +23,39 @@ st.markdown("""
     }
 
     .stApp {
-        background-color: #030303 !important;
+        background-color: #f1f3f9 !important;
         background-image: 
-            radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-            radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 50%),
-            radial-gradient(at 50% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%) !important;
+            radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+            radial-gradient(at 90% 10%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+            radial-gradient(at 50% 90%, rgba(6, 182, 212, 0.06) 0px, transparent 50%) !important;
         background-attachment: fixed !important;
     }
 
     /* ── Sidebar ── */
     section[data-testid="stSidebar"] {
-        background-color: #080808 !important;
-        background-image: 
-            radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%) !important;
-        backdrop-filter: blur(20px) !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+        background-color: rgba(255, 255, 255, 0.6) !important;
+        backdrop-filter: blur(25px) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.4) !important;
     }
 
     section[data-testid="stSidebar"] .stMarkdown p,
     section[data-testid="stSidebar"] .stMarkdown h1,
     section[data-testid="stSidebar"] .stMarkdown h2,
     section[data-testid="stSidebar"] .stMarkdown h3 {
-        color: #e0e0ff !important;
+        color: #0f172a !important;
     }
 
     /* ── Glass Card ── */
     .glass-card {
-        background: rgba(20, 20, 25, 0.6) !important;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.55) !important;
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
         padding: 32px;
         margin-bottom: 24px;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 
-                    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03), 
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                     box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                     border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -75,9 +73,9 @@ st.markdown("""
         background: linear-gradient(
             90deg,
             rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.01) 30%,
-            rgba(255, 255, 255, 0.12) 50%,
-            rgba(255, 255, 255, 0.01) 70%,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.1) 70%,
             rgba(255, 255, 255, 0) 100%
         );
         transform: skewX(-25deg);
@@ -85,11 +83,10 @@ st.markdown("""
     }
 
     .glass-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(139, 92, 246, 0.35);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 
-                    0 0 15px rgba(139, 92, 246, 0.15),
-                    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+        border-color: rgba(99, 102, 241, 0.3);
+        box-shadow: 0 16px 48px rgba(99, 102, 241, 0.06), 
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
     }
 
     .glass-card:hover::before {
@@ -99,14 +96,14 @@ st.markdown("""
 
     /* ── Hero Banner ── */
     .hero-banner {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(168, 85, 247, 0.12) 50%, rgba(236, 72, 153, 0.12) 100%);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(6, 182, 212, 0.05) 100%);
         backdrop-filter: blur(30px);
         border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 48px 40px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        padding: 40px 32px;
         margin-bottom: 32px;
         text-align: center;
-        box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
         position: relative;
         overflow: hidden;
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -124,9 +121,9 @@ st.markdown("""
         background: linear-gradient(
             90deg,
             rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.01) 30%,
-            rgba(255, 255, 255, 0.15) 50%,
-            rgba(255, 255, 255, 0.01) 70%,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.1) 70%,
             rgba(255, 255, 255, 0) 100%
         );
         transform: skewX(-25deg);
@@ -134,9 +131,9 @@ st.markdown("""
     }
 
     .hero-banner:hover {
-        transform: translateY(-2px);
-        border-color: rgba(168, 85, 247, 0.4);
-        box-shadow: 0 16px 40px rgba(99, 102, 241, 0.25);
+        transform: translateY(-1px);
+        border-color: rgba(99, 102, 241, 0.2);
+        box-shadow: 0 16px 48px rgba(99, 102, 241, 0.04);
     }
 
     .hero-banner:hover::before {
@@ -145,9 +142,9 @@ st.markdown("""
     }
 
     .hero-banner h1 {
-        font-size: 2.8rem !important;
+        font-size: 2.6rem !important;
         font-weight: 800 !important;
-        background: linear-gradient(135deg, #a78bfa, #818cf8, #c084fc, #e879f9);
+        background: linear-gradient(135deg, #4f46e5, #7c3aed, #0891b2);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -158,9 +155,9 @@ st.markdown("""
     }
 
     .hero-subtitle {
-        color: rgba(200, 200, 230, 0.8);
+        color: #475569;
         font-size: 1.1rem;
-        font-weight: 300;
+        font-weight: 400;
         max-width: 600px;
         margin: 0 auto;
         line-height: 1.6;
@@ -172,7 +169,7 @@ st.markdown("""
     .section-header {
         font-size: 1.4rem !important;
         font-weight: 700 !important;
-        color: #c4b5fd !important;
+        color: #1e1b4b !important;
         margin-bottom: 16px !important;
         display: flex;
         align-items: center;
@@ -181,21 +178,23 @@ st.markdown("""
 
     /* ── Starter Card ── */
     .starter-card {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08));
-        border: 1px solid rgba(139, 92, 246, 0.2);
-        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
         padding: 20px 24px;
         margin-bottom: 12px;
-        color: #e0e0ff;
+        color: #0f172a;
         font-size: 1rem;
         line-height: 1.6;
-        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .starter-card:hover {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.14), rgba(168, 85, 247, 0.14));
-        border-color: rgba(139, 92, 246, 0.4);
+        background: #ffffff !important;
+        border-color: rgba(99, 102, 241, 0.2);
         transform: translateX(4px);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.04);
     }
 
     .starter-number {
@@ -215,21 +214,21 @@ st.markdown("""
     /* ── Topic Pill ── */
     .topic-pill {
         display: inline-block;
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
-        border: 1px solid rgba(139, 92, 246, 0.3);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(168, 85, 247, 0.06));
+        border: 1px solid rgba(99, 102, 241, 0.15);
         border-radius: 30px;
         padding: 6px 18px;
         margin: 4px 6px 4px 0;
-        color: #c4b5fd;
+        color: #4f46e5;
         font-size: 0.85rem;
-        font-weight: 500;
+        font-weight: 600;
         letter-spacing: 0.3px;
     }
 
-    /* ── History Card ── */
+    /* ── History Card (Fallback) ── */
     .history-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.4);
         border-radius: 16px;
         padding: 24px;
         margin-bottom: 16px;
@@ -237,7 +236,7 @@ st.markdown("""
     }
 
     .history-card:hover {
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.5);
         border-color: rgba(255, 255, 255, 0.1);
     }
 
@@ -301,24 +300,25 @@ st.markdown("""
     }
 
     /* ── Buttons ── */
+    /* ── Buttons ── */
     .stButton > button {
-        background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+        background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
         color: white !important;
         border: none !important;
-        border-radius: 12px !important;
+        border-radius: 14px !important;
         padding: 10px 28px !important;
         font-weight: 600 !important;
-        font-family: 'Inter', sans-serif !important;
+        font-family: 'Outfit', 'Inter', sans-serif !important;
         font-size: 0.95rem !important;
         letter-spacing: 0.3px;
         transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2) !important;
     }
 
     .stButton > button:hover {
-        background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+        background: linear-gradient(135deg, #4f46e5, #3730a3) !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4) !important;
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
     }
 
     .stButton > button:active {
@@ -326,41 +326,41 @@ st.markdown("""
     }
 
     /* ── Text Inputs ── */
-    /* ── Text Inputs ── */
     .stTextArea textarea, .stTextInput input, div[data-baseweb="input"] input, div[data-baseweb="textarea"] textarea {
-        background: #101014 !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        border-radius: 12px !important;
-        color: #ffffff !important;
-        -webkit-text-fill-color: #ffffff !important;
-        font-family: 'Inter', sans-serif !important;
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 14px !important;
+        color: #0f172a !important;
+        -webkit-text-fill-color: #0f172a !important;
+        font-family: 'Outfit', 'Inter', sans-serif !important;
         font-size: 0.95rem !important;
         padding: 12px 16px !important;
         transition: all 0.3s ease !important;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.02) !important;
     }
 
     .stTextArea textarea:focus, .stTextInput input:focus, div[data-baseweb="input"]:focus-within, div[data-baseweb="textarea"]:focus-within {
-        border-color: rgba(139, 92, 246, 0.6) !important;
-        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
-        background: #08080c !important;
+        border-color: #6366f1 !important;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+        background: #ffffff !important;
     }
 
     /* Force text color in wrapper */
     div[data-baseweb="input"], div[data-baseweb="textarea"] {
         background-color: transparent !important;
         border: none !important;
-        color: #ffffff !important;
+        color: #0f172a !important;
     }
 
     /* Placeholder style */
     ::placeholder, .stTextArea textarea::placeholder, .stTextInput input::placeholder {
-        color: rgba(200, 200, 230, 0.4) !important;
-        -webkit-text-fill-color: rgba(200, 200, 230, 0.4) !important;
+        color: #94a3b8 !important;
+        -webkit-text-fill-color: #94a3b8 !important;
         opacity: 1 !important;
     }
 
     .stTextArea label, .stTextInput label {
-        color: #c4b5fd !important;
+        color: #4f46e5 !important;
         font-weight: 600 !important;
         font-size: 0.95rem !important;
         letter-spacing: 0.3px;
@@ -370,30 +370,39 @@ st.markdown("""
     /* ── Divider ── */
     .custom-divider {
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
         margin: 32px 0;
         border: none;
     }
 
     /* ── Tabs styling ── */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 4px;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 14px;
-        padding: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 16px;
+        padding: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.01);
     }
 
     .stTabs [data-baseweb="tab"] {
-        border-radius: 10px !important;
-        color: #a0a0c0 !important;
-        font-weight: 500 !important;
-        padding: 10px 20px !important;
+        border-radius: 12px !important;
+        color: #64748b !important;
+        font-weight: 600 !important;
+        font-family: 'Outfit', 'Inter', sans-serif !important;
+        padding: 10px 24px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .stTabs [data-baseweb="tab"]:hover {
+        color: #4f46e5 !important;
+        background: rgba(255, 255, 255, 0.3) !important;
     }
 
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2)) !important;
-        color: #c4b5fd !important;
+        background: #ffffff !important;
+        color: #4f46e5 !important;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08) !important;
     }
 
     .stTabs [data-baseweb="tab-highlight"] {
@@ -423,22 +432,23 @@ st.markdown("""
 
     /* ── Metric cards ── */
     .metric-card {
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(255, 255, 255, 0.5) !important;
         backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.6);
         border-radius: 16px;
         padding: 20px 24px;
         text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.01);
     }
     .metric-value {
         font-size: 2rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #a78bfa, #e879f9);
+        background: linear-gradient(135deg, #4f46e5, #ec4899);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
     .metric-label {
-        color: rgba(200, 200, 230, 0.6);
+        color: #64748b;
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 1.5px;
@@ -447,18 +457,18 @@ st.markdown("""
 
     /* ── Accordion Glass Expander ── */
     div[data-testid="stExpander"] {
-        background: rgba(20, 20, 25, 0.4) !important;
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        border-radius: 16px !important;
+        background: rgba(255, 255, 255, 0.35) !important;
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        border-radius: 18px !important;
         margin-bottom: 12px !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
         overflow: hidden !important;
-        transition: all 0.3s ease !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     div[data-testid="stExpander"]:hover {
-        border-color: rgba(139, 92, 246, 0.3) !important;
-        background: rgba(25, 25, 30, 0.5) !important;
-        box-shadow: 0 8px 30px rgba(139, 92, 246, 0.08) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+        background: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.04) !important;
     }
     div[data-testid="stExpander"] details {
         border: none !important;
@@ -466,10 +476,10 @@ st.markdown("""
     div[data-testid="stExpander"] summary {
         padding: 16px 20px !important;
         font-weight: 600 !important;
-        color: #e2e8f0 !important;
+        color: #1e293b !important;
     }
     div[data-testid="stExpander"] summary:hover {
-        color: #c4b5fd !important;
+        color: #4f46e5 !important;
     }
 
     /* ── Compact Emoji Feedback Buttons ── */
@@ -481,8 +491,8 @@ st.markdown("""
         gap: 8px;
     }
     .suggestion-actions button {
-        background: rgba(255, 255, 255, 0.04) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        background: rgba(0, 0, 0, 0.03) !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
         border-radius: 50% !important;
         width: 36px !important;
         height: 36px !important;
@@ -493,16 +503,16 @@ st.markdown("""
         align-items: center !important;
         justify-content: center !important;
         font-size: 0.95rem !important;
-        color: rgba(255, 255, 255, 0.7) !important;
+        color: #475569 !important;
         box-shadow: none !important;
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .suggestion-actions button:hover {
-        background: rgba(139, 92, 246, 0.15) !important;
-        border-color: rgba(139, 92, 246, 0.4) !important;
-        color: #ffffff !important;
+        background: rgba(99, 102, 241, 0.08) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+        color: #4f46e5 !important;
         transform: scale(1.1) translateY(-1px) !important;
-        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1) !important;
     }
     .suggestion-actions button:active {
         transform: scale(0.95) !important;
@@ -608,67 +618,66 @@ tab1, tab2, tab3, tab4 = st.tabs([
 
 # ━━━━━━━━━━━ TAB 1: Generate Conversation Starters ━━━━━━━━━━━
 with tab1:
-    col_input, col_output = st.columns([5, 7], gap="large")
+    col_history, col_workspace = st.columns([5, 7], gap="large")
     
-    with col_input:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.markdown('<p class="section-header">🎯 Event Settings</p>', unsafe_allow_html=True)
-        st.markdown(
-            '<p style="color: rgba(200,200,230,0.6); font-size: 0.9rem; margin-bottom: 16px;">'
-            'Enter the event details and your interests below to generate tailored starters.</p>',
-            unsafe_allow_html=True
-        )
-
-        event_description = st.text_area(
-            "📝 Event Description",
-            placeholder="e.g. AI for Sustainable Cities — a conference exploring how artificial intelligence can drive urban sustainability...",
-            height=140
-        )
-
-        user_interests = st.text_input(
-            "💡 Your Interests (comma-separated)",
-            placeholder="e.g. climate change, urban planning, green energy"
-        )
-
-        generate_clicked = st.button("✨ Generate Starters", use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-
-        if generate_clicked:
-            if event_description and user_interests:
-                payload = {
-                    "description": event_description,
-                    "interests": [i.strip() for i in user_interests.split(",")]
-                }
-
-                with st.spinner("🧠 AI is crafting your starters..."):
-                    try:
-                        response = requests.post(f"{BASE_URL}/generate-conversation", json=payload, timeout=60)
-
-                        if response.status_code == 200:
-                            data = response.json()
-                            st.session_state["topics"] = data["topics"]
-                            st.session_state["suggestions"] = data["suggestions"]
+    # ─── LEFT COLUMN: Chat Results / History ───
+    with col_history:
+        st.markdown('<p class="section-header">📜 Chat Results</p>', unsafe_allow_html=True)
+        st.markdown('<span style="color: #64748b; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 12px; text-transform: uppercase;">Recent Sessions</span>', unsafe_allow_html=True)
+        
+        try:
+            response = requests.get(f"{BASE_URL}/history", timeout=5)
+            if response.status_code == 200:
+                history = response.json()
+                if history:
+                    for idx, item in enumerate(reversed(history[-5:])): # Show last 5
+                        timestamp = item.get("created_at", item.get("timestamp", "N/A"))
+                        event_desc = item.get("event_description", item.get("description", "N/A"))
+                        themes = item.get("themes", item.get("topics", []))
+                        interests = item.get("interests", [])
+                        suggestions = item.get("suggestions", [])
+                        if not suggestions and "content" in item:
+                            suggestions = [s.get("starter", s) if isinstance(s, dict) else s for s in item["content"].get("conversation_starters", [])]
+                        
+                        st.markdown(f"""
+                        <div style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 16px; padding: 16px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.015);">
+                            <div style="color: #64748b; font-size: 0.75rem; font-weight: 600; margin-bottom: 4px;">🕒 {timestamp}</div>
+                            <div style="color: #0f172a; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; line-height: 1.4;">📌 {event_desc[:55]}...</div>
+                            <div style="color: #475569; font-size: 0.8rem; line-height: 1.4;">
+                                <strong>Themes:</strong> {', '.join(themes[:2]) if themes else 'None'}
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                        
+                        if st.button("📂 Open Session", key=f"load_session_{idx}", use_container_width=True):
+                            st.session_state["topics"] = themes
+                            st.session_state["suggestions"] = suggestions
+                            st.session_state["loaded_desc"] = event_desc
+                            st.session_state["loaded_interests"] = ", ".join(interests)
                             st.rerun()
-                        else:
-                            st.error("❌ Failed to generate conversation starters. Is the backend running?")
-                    except requests.exceptions.ConnectionError:
-                        st.error("🔌 Cannot connect to backend. Please start the FastAPI server first.")
-                    except Exception as e:
-                        st.error(f"⚠️ An unexpected error occurred: {e}")
+                else:
+                    st.info("📭 No past chats found.")
             else:
-                st.warning("⚠️ Please enter both an event description and your interests.")
-                
-    with col_output:
-        # Display results if available, otherwise show placeholder
-        if "suggestions" in st.session_state and st.session_state["suggestions"]:
+                st.error("Failed to load history.")
+        except Exception:
+            st.error("🔌 Backend server not reachable.")
+
+    # ─── RIGHT COLUMN: Active Workspace ───
+    with col_workspace:
+        has_active = "suggestions" in st.session_state and st.session_state["suggestions"]
+        
+        st.markdown('<p class="section-header">🤖 Active Assistant</p>', unsafe_allow_html=True)
+        
+        # Display suggestions list at the top (similar to active bubble chat in reference)
+        if has_active:
             st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-            st.markdown('<p class="section-header">🧠 Extracted Themes</p>', unsafe_allow_html=True)
+            st.markdown('<span style="color: #4f46e5; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 8px; text-transform: uppercase;">Extracted Themes</span>', unsafe_allow_html=True)
             pills_html = ""
             for topic in st.session_state["topics"]:
                 pills_html += f'<span class="topic-pill">{topic}</span>'
             st.markdown(f'<div style="margin-bottom: 24px;">{pills_html}</div>', unsafe_allow_html=True)
             
-            st.markdown('<p class="section-header">💬 Tailored Starters</p>', unsafe_allow_html=True)
+            st.markdown('<span style="color: #4f46e5; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 12px; text-transform: uppercase;">Conversation Starters</span>', unsafe_allow_html=True)
             for i, suggestion in enumerate(st.session_state["suggestions"]):
                 st.markdown(
                     f'<div class="starter-card">'
@@ -689,7 +698,7 @@ with tab1:
                                 timeout=10
                             )
                             if resp.status_code == 200:
-                                st.success("✅ Saved!")
+                                st.success("Saved!")
                         except Exception:
                             st.error("Error.")
                 with col2:
@@ -701,21 +710,74 @@ with tab1:
                                 timeout=10
                             )
                             if resp.status_code == 200:
-                                st.info("📝 Noted.")
+                                st.info("Noted.")
                         except Exception:
                             st.error("Error.")
                 st.markdown('</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
         else:
+            # Styled tablet placeholder
             st.markdown(f"""
             <div class="placeholder-card">
-                <div class="placeholder-icon">🤝</div>
-                <div class="placeholder-text">Conversation Starters</div>
+                <div class="placeholder-icon">🤖</div>
+                <div class="placeholder-text">Hi! How can I help you?</div>
                 <div class="placeholder-desc">
-                    Your AI-powered networking starters and event-relevant themes will appear here. Submit the event settings on the left to start!
+                    Enter event settings below to generate tailored starters, or select a past session from the left column.
                 </div>
             </div>
             """, unsafe_allow_html=True)
+            
+        # Settings/inputs form at the bottom (matching bottom input bar in reference)
+        st.markdown('<div class="glass-card" style="margin-top: 16px;">', unsafe_allow_html=True)
+        st.markdown('<span style="color: #4f46e5; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 8px; text-transform: uppercase;">Configure Chat</span>', unsafe_allow_html=True)
+        
+        default_desc = st.session_state.get("loaded_desc", "")
+        default_interests = st.session_state.get("loaded_interests", "")
+        
+        event_description = st.text_area(
+            "📝 Event Description",
+            value=default_desc,
+            placeholder="e.g. AI for Sustainable Cities — a conference exploring urban sustainability...",
+            height=100,
+            key="active_event_description"
+        )
+
+        user_interests = st.text_input(
+            "💡 Your Interests (comma-separated)",
+            value=default_interests,
+            placeholder="e.g. climate change, urban planning",
+            key="active_user_interests"
+        )
+
+        generate_clicked = st.button("✨ Generate Starters", use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+        if generate_clicked:
+            if event_description and user_interests:
+                payload = {
+                    "description": event_description,
+                    "interests": [i.strip() for i in user_interests.split(",")]
+                }
+
+                with st.spinner("🧠 AI is crafting your starters..."):
+                    try:
+                        response = requests.post(f"{BASE_URL}/generate-conversation", json=payload, timeout=60)
+
+                        if response.status_code == 200:
+                            data = response.json()
+                            st.session_state["topics"] = data["topics"]
+                            st.session_state["suggestions"] = data["suggestions"]
+                            st.session_state["loaded_desc"] = event_description
+                            st.session_state["loaded_interests"] = user_interests
+                            st.rerun()
+                        else:
+                            st.error("❌ Failed to generate conversation starters.")
+                    except requests.exceptions.ConnectionError:
+                        st.error("🔌 Cannot connect to backend.")
+                    except Exception as e:
+                        st.error(f"⚠️ Error: {e}")
+            else:
+                st.warning("⚠️ Please fill in both fields.")
 
 
 # ━━━━━━━━━━━ TAB 2: Fact Check ━━━━━━━━━━━

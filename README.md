@@ -193,9 +193,11 @@ The repository is organized into the following project phases:
 
 ## 👥 Team Members
 
-- Maliga Charishma
-- Challa Praveenkumar
-- Naidu Sashank
+- Thrivedh Reddy
+- Bhagesh Thupakula
+- Harshavardhan Reddy
+- Vijay Reddy Vintha
+- Sampath Kilari
 
 ---
 

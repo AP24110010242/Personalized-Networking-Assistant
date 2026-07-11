@@ -9,7 +9,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-BASE_URL = "http://127.0.0.1:8000"
+import os
+BASE_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
 
 # ─── Custom CSS: Glassmorphism + Professional Styling ───
 st.markdown("""

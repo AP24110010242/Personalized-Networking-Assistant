@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: networking-assistant
+    env: docker
+    plan: free
+    dockerCommand: "./start.sh"
+    envVars:
+      - key: PORT
+        value: 8501
+      - key: API_URL
+        value: "http://127.0.0.1:8000"

@@ -1,10 +1,14 @@
 from transformers import pipeline, set_seed
 from app.config import MODEL_NAMES
 
-generator = pipeline("text-generation", model=MODEL_NAMES["text_generator"])
-set_seed(42)
+generator = None
 
 def generate_topics(event_themes, user_interests):
+    global generator
+    if generator is None:
+        generator = pipeline("text-generation", model=MODEL_NAMES["text_generator"])
+        set_seed(42)
+        
     prompt = (
         f"I'm attending a networking event focused on {', '.join(event_themes)}.\n"
         f"I'm personally interested in {', '.join(user_interests)}.\n"

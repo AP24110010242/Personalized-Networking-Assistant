@@ -2,6 +2,7 @@ services:
   - type: web
     name: networking-assistant
     env: docker
+    rootDir: Project
     plan: free
     dockerCommand: "./start.sh"
     envVars:

@@ -20,3 +20,7 @@ class FactCheckRequest(BaseModel):
 
 class FactCheckResponse(BaseModel):
     summary: str
+
+class FeedbackRequest(BaseModel):
+    suggestion: str
+    action: str

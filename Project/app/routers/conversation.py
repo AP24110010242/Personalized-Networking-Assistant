@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.models.schemas import EventInput, ConversationRequest, FactCheckRequest, ConversationResponse, FactCheckResponse
-from app.services import event_analyzer, topic_generator, fact_checker, history_logger
+from app.models.schemas import EventInput, ConversationRequest, FactCheckRequest, ConversationResponse, FactCheckResponse, FeedbackRequest
+from app.services import event_analyzer, topic_generator, fact_checker, history_logger, feedback_logger
 
 router = APIRouter()
 
@@ -28,3 +28,16 @@ def generate_conversation(data: ConversationRequest):
     })
     
     return ConversationResponse(topics=themes, suggestions=suggestions)
+
+@router.get("/history")
+def get_history():
+    return history_logger.load_history()
+
+@router.get("/feedback")
+def get_feedback():
+    return feedback_logger.get_feedback()
+
+@router.post("/feedback")
+def post_feedback(data: FeedbackRequest):
+    feedback_logger.log_feedback(data.suggestion, data.action)
+    return {"status": "success"}

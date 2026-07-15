@@ -630,7 +630,7 @@ with tab1:
         st.markdown('<span style="color: #64748b; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 12px; text-transform: uppercase;">Recent Sessions</span>', unsafe_allow_html=True)
         
         try:
-            response = requests.get(f"{BASE_URL}/history", timeout=5)
+            response = requests.get(f"{BASE_URL}/history", timeout=30)
             if response.status_code == 200:
                 history = response.json()
                 if history:

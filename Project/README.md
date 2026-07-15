@@ -203,9 +203,11 @@ All other values have sensible defaults and work out of the box.
 
 ## Running the Application
 
+### Option A: Local Development (Two Terminals)
+
 You need **two terminal windows** running simultaneously.
 
-### Terminal 1 – FastAPI Backend
+#### Terminal 1 – FastAPI Backend
 
 ```bash
 # From the project root (where app/ lives)
@@ -217,7 +219,7 @@ The API will be available at:
 - **Interactive Docs (Swagger UI):** `http://127.0.0.1:8000/docs`  
 - **ReDoc:** `http://127.0.0.1:8000/redoc`
 
-### Terminal 2 – Streamlit Frontend
+#### Terminal 2 – Streamlit Frontend
 
 ```bash
 # From the project root
@@ -227,6 +229,30 @@ streamlit run frontend/streamlit_app.py
 Open your browser at **`http://localhost:8501`**.
 
 > ⚠️ **First run:** Hugging Face will download DistilBERT (~265 MB) and GPT-2 (~500 MB) on first startup. This can take several minutes depending on your connection speed. Subsequent starts use the local cache.
+
+### Option B: Docker Deployment (Render)
+
+This project is fully dockerized and ready for cloud deployment (e.g., on Render). Both the frontend and backend are launched together in a single container.
+
+```bash
+# 1. Build the Docker image locally
+docker build -t networking-assistant .
+
+# 2. Run the container locally
+docker run -p 8000:8000 -p 8501:8501 networking-assistant
+```
+
+To deploy to **Render**:
+1. Connect your GitHub repository.
+2. Create a new **Web Service** or use the included `render.yaml` Blueprint.
+3. Render will build the `Dockerfile` and run the `start.sh` entrypoint automatically.
+
+---
+
+## 🎬 Demo Video
+
+A full demonstration of the application in action can be found in the repository.  
+Navigate to the `Demo Video/` folder to view the **5-minute walkthrough** highlighting all core features.
 
 ---
 
